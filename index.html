@@ -3,175 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kako načrtovati popoln oddih in ohraniti visoko raven energije | Turistični Oglasi</title>
-    <meta name="description" content="Vodič za sodobnega popotnika: Kako premagati potovalni stres, samostojno načrtovati pot in ohraniti vrhunsko vitalnost.">
+    <title>Turistični Oglasi | Vodnik za pametna potovanja in regeneracijo</title>
+    <meta name="description" content="Strokovni nasveti za načrtovanje potovanj, trajnostni turizem in ohranjanje vrhunske vitalnosti na poti.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --text-color: #333;
-            --bg-color: #f4f7f6;
-            --card-bg: #ffffff;
-        }
-
+        :root { --primary-color: #2c3e50; --accent-color: #3498db; --text-color: #333; --bg-color: #f4f7f6; --card-bg: #ffffff; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Inter', sans-serif; line-height: 1.8; color: var(--text-color); background-color: var(--bg-color); }
-
-        header {
-            background: #fff;
-            padding: 20px 0;
-            border-bottom: 1px solid #ddd;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header h1 { font-size: 1.2rem; color: var(--primary-color); text-transform: uppercase; letter-spacing: 2px; }
-
+        header { background: #fff; padding: 15px 0; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 1000; }
+        .header-container { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        header h1 { font-size: 1.1rem; color: var(--primary-color); text-transform: uppercase; letter-spacing: 2px; }
+        nav ul { list-style: none; display: flex; gap: 20px; }
+        nav a { text-decoration: none; color: var(--primary-color); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; }
+        nav a:hover { color: var(--accent-color); }
         .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-
-        article.main-post {
-            background: #fff;
-            padding: 50px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-bottom: 60px;
-        }
-
-        .post-meta { font-size: 0.9rem; color: #999; margin-bottom: 10px; text-align: center; }
-        h2.main-title { font-size: 2.5rem; line-height: 1.2; margin-bottom: 30px; color: var(--primary-color); text-align: center; }
-        
-        .featured-image { width: 100%; height: 450px; border-radius: 8px; margin-bottom: 40px; overflow: hidden; background: #eee; }
+        article.main-post, .secondary-article { background: #fff; padding: 50px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 60px; border: 1px solid #eee; }
+        .post-meta { font-size: 0.9rem; color: #999; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        h2.main-title, h2.sec-title { font-size: 2.2rem; line-height: 1.2; margin-bottom: 30px; color: var(--primary-color); }
+        .featured-image { width: 100%; height: 420px; border-radius: 8px; margin-bottom: 40px; overflow: hidden; background: #eee; }
         .featured-image img { width: 100%; height: 100%; object-fit: cover; }
-
-        h3 { font-size: 1.8rem; margin: 40px 0 20px; color: var(--primary-color); border-left: 5px solid var(--accent-color); padding-left: 15px; }
-        p { margin-bottom: 25px; font-size: 1.15rem; color: #444; }
-
-        .content a { color: var(--accent-color); text-decoration: none; font-weight: 700; transition: 0.2s; }
-        .content a:hover { text-decoration: underline; }
-
-        .highlight-box {
-            background: #f0f7ff;
-            padding: 30px;
-            border-radius: 8px;
-            border-left: 5px solid var(--accent-color);
-            margin: 30px 0;
-        }
-
-        .blog-feed-title { text-align: center; margin-bottom: 40px; font-size: 2rem; color: var(--primary-color); position: relative; }
-        .blog-feed-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--accent-color); margin: 15px auto 0; }
-
+        h3 { font-size: 1.6rem; margin: 35px 0 15px; color: var(--primary-color); border-left: 5px solid var(--accent-color); padding-left: 15px; }
+        p { margin-bottom: 25px; font-size: 1.1rem; color: #444; text-align: justify; }
+        .highlight-box { background: #f0f7ff; padding: 30px; border-radius: 8px; border-left: 5px solid var(--accent-color); margin: 30px 0; font-style: italic; }
+        .blog-feed-title { text-align: center; margin: 60px 0 40px; font-size: 1.8rem; color: var(--primary-color); position: relative; }
+        .blog-feed-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--accent-color); margin: 15px auto; }
         .post-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .post-card { background: var(--card-bg); border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease; }
-        .post-card:hover { transform: translateY(-5px); }
-        .post-card-image { width: 100%; height: 180px; background: #ddd; overflow: hidden; }
+        .post-card { background: var(--card-bg); border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .post-card-image { height: 180px; background: #eee; overflow: hidden; }
         .post-card-image img { width: 100%; height: 100%; object-fit: cover; }
         .post-card-content { padding: 20px; }
-        .post-card-content h4 { font-size: 1.2rem; margin-bottom: 10px; color: var(--primary-color); }
-        .post-card-content p { font-size: 0.95rem; line-height: 1.5; color: #666; margin-bottom: 0; }
-        .post-card-date { font-size: 0.8rem; color: #bbb; margin-bottom: 10px; display: block; }
-
-        footer { padding: 60px 0; text-align: center; font-size: 0.9rem; color: #777; border-top: 1px solid #ddd; margin-top: 40px; }
-
-        @media (max-width: 600px) {
-            h2.main-title { font-size: 1.8rem; }
-            article.main-post { padding: 25px; }
-            .featured-image { height: 250px; }
-        }
+        .post-card-content h4 { font-size: 1.2rem; color: var(--primary-color); margin-bottom: 10px; }
+        footer { padding: 50px 0; text-align: center; font-size: 0.85rem; color: #777; border-top: 1px solid #ddd; background: #fff; margin-top: 60px; }
+        footer nav { margin-bottom: 20px; }
+        footer nav a { margin: 0 12px; color: #777; text-decoration: none; font-weight: 600; }
+        @media (max-width: 600px) { h2.main-title, h2.sec-title { font-size: 1.7rem; } article.main-post, .secondary-article { padding: 25px; } .featured-image { height: 250px; } }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Turistični Oglasi</h1>
+    <div class="header-container">
+        <h1>Turistični Oglasi</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Domov</a></li>
+                <li><a href="o-nas.html">O nas</a></li>
+                <li><a href="pravno-obvestilo.html">Pravno obvestilo</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
 
 <div class="container">
     <article class="main-post">
-        <div class="post-meta">Posodobljeno: 4. marec 2026 | Avtor: Uredniška ekipa</div>
+        <div class="post-meta">Objavljeno: 6. marec 2026 | Avtor: Uredništvo</div>
         <h2 class="main-title">Kako načrtovati popoln oddih in ohraniti visoko raven energije</h2>
-        
         <div class="featured-image">
             <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80" alt="Potovanja in narava">
         </div>
-
         <div class="content">
-            <p>V današnjem hitrem tempu življenja so potovanja postala več kot le luksuz; so nujna potreba po regeneraciji duha in telesa. Vendar se pogosto zgodi, da se z dopusta vrnemo bolj utrujeni, kot smo nanj odšli. Zakaj je temu tako? Odgovor se skriva v načrtovanju in razumevanju, kako naše telo reagira na spremembe okolja, stresne dejavnike na poti in spremenjen bioritem. Ta prispevek raziskuje, kako maksimirati učinke vašega oddiha, od izbire destinacije do ohranjanja vrhunske fizične pripravljenosti, ne glede na to, kje na svetu se nahajate.</p>
-
+            <p>V sodobnem svetu, kjer so meje med delom in prostim časom vedno bolj zabrisane, so potovanja postala ključno orodje za ohranjanje duševnega zdravja in fizične vitalnosti. Vendar pa proces potovanja pogosto prinese stres, ki lahko zasenči pozitivne učinke dopusta. Ključ do resnične regeneracije leži v razumevanju psihologije okolja in načrtovanju "praznih prostorov" v vašem urniku.</p>
+            
             <h3>Psihologija potovanj: Zakaj potrebujemo odklop?</h3>
-            <p>Gre za kognitivno stimulacijo, ki jo povzročijo novi dražljaji. Ko zamenjamo okolje, naši možgani začnejo ustvarjati nove nevronske poti, kar izboljšuje ustvarjalnost in zmanjšuje dolgoročni stres. Ključ do prave regeneracije je v ravnovesju med aktivnostjo in pasivnostjo. Pri načrtovanju oddiha na portalih, kot je Turistični Oglasi, je ključno iskati namestitve, ki ne nudijo le postelje, temveč okolje, ki spodbuja mir.</p>
-
-            <h3>Obvladovanje potovalnega stresa</h3>
-            <p>Potovalni stres se začne že doma – z pakiranjem in logistiko. Na samem potovanju pa se soočamo z zamudami in neznanim okoljem. Da bi se temu izognili, je ključno vnaprejšnje načrtovanje "praznega časa". Rezervirajte si popoldneve brez načrta. To je čas, ko se telo dejansko začne sproščati in ko se vaša raven energije začne stabilizirati.</p>
+            <p>Sprememba okolja spodbuja nevroplastičnost možganov. Ko se znajdemo v neznanem mestu ali divjini, naši čuti postanejo bolj izostreni. Raziskave kažejo, da že teden dni v naravi zmanjša raven stresnega hormona kortizola za več kot 20 %. Da bi ta učinek ohranili, je nujno, da se izognemo prenatrpanim turističnim načrtom, ki nas silijo v hitenje.</p>
 
             <div class="highlight-box">
-                <h3>Svoboda v vaših rokah: Samostojno načrtovanje</h3>
-                <p>Samostojna rezervacija letov in namestitev ne prinaša le finančnih prihrankov, temveč predvsem neprecenljivo svobodo. Eno izmed najmočnejših orodij je <strong>Google Flights</strong>, ki omogoča hitro primerjavo cen in optimalnih povezav. Ko dosežete svojo destinacijo, pa <strong>Booking.com</strong> ponuja neomejene možnosti namestitev ter zanesljive letališke prevoze (airport transfers), kar vam prihrani dragoceno energijo za uživanje.</p>
+                <p>Nasvet: Rezervirajte namestitve, ki omogočajo stik z lokalno naravo. Samostojna organizacija poti vam omogoča fleksibilnost, ki je turistične agencije ne morejo ponuditi.</p>
             </div>
 
-            <h3>Zdravje na poti: Na kaj morate biti pozorni?</h3>
-            <p>Sprememba okolja in podnebja lahko hitro zamaje naše zdravje. Prva stvar je prebava; vedno preverite kakovost vode in se izogibajte surovi hrani na tveganih območjih. Ne pozabite tudi na redno terapijo in dodatke, ki jih uporabljate doma. Mnogi moški na dopustu pozabijo na svojo rutino, kar vodi v nepotreben stres.</p>
-            
-            <p>Če za ohranjanje svoje samozavesti in zmogljivosti uporabljate izdelke, kot je <strong>Kamagra</strong> ali podobna dopolnila za moško zdravje, je ključno, da jih imate vedno v svoji potovalni lekarni. Kontinuiteta zagotavlja, da boste ostali v vrhunski formi tudi takrat, ko bo vaše telo utrujeno od raziskovanja.</p>
-
-            <h3>Telesna aktivnost in vzdržljivost</h3>
-            <p>Pasivni dopust pogosto vodi v občutek otopelosti. Aktivni oddih – pohodništvo, kolesarjenje ali plavanje – spodbuja sproščanje endorfinov, naravnih hormonov sreče. Za sodobnega moškega je ohranjanje pripravljenosti na potovanju ključno tudi za njegovo samozavest v zasebnih trenutkih, ki jih ponuja sproščeno okolje dopusta.</p>
-
-            <h3>Iskanje zanesljivih rešitev</h3>
-            <p>V svetu informacij je ključno najti vire, ki so strokovni in diskretni. Moško zdravje zahteva posebno pozornost in kakovostne izdelke, ki povrnejo samozavest. Za tiste, ki iščejo hitre in učinkovite rešitve v Sloveniji, je blagovna znamka **Kamagra Slovenija** postala sinonim za diskretnost in kakovost. Njihovi izdelki pomagajo premagati ovire, ki jih povzročata stres in utrujenost.</p>
-
-            <h3>Zaključek: Vrnite se domov prerojeni</h3>
-            <p>Popoln oddih je tisti, kjer se zares povežete s seboj. Z načrtovanjem logistike, hidracijo in pozornostjo do lastne vitalnosti bo vaše potovanje imelo dolgoročne pozitivne učinke. Ne dovolite, da bi stres pokvaril dragocene trenutke. Bodite pripravljeni, ostanite aktivni in uživajte v vsakem trenutku.</p>
+            <h3>Energija in vitalnost na poti</h3>
+            <p>Številni popotniki na poti zanemarijo svoje fizično stanje, kar vodi v izčrpanost. Za ohranjanje vrhunske forme na potovanju je nujna pozornost do prehrane in kakovostnega spanca. Poleg tega se vedno več aktivnih moških zanaša na naravna prehranska dopolnila in vitamine, ki telesu pomagajo pri premagovanju časovnih razlik. Skrb za osebno moč in samozavest skozi vrhunsko fizično počutje je osnova, da boste v vsakem trenutku potovanja prisotni in polni zagona.</p>
         </div>
     </article>
 
-    <h3 class="blog-feed-title">Pretekle objave in nasveti</h3>
+    <section class="secondary-article">
+        <div class="post-meta">Objavljeno: 12. februar 2026 | Avtor: Marko J.</div>
+        <h2 class="sec-title">Trajnostna potovanja: Prihodnost turizma in moč digitalnega detoksa</h2>
+        <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80" alt="Trajnostni turizem">
+        </div>
+        <div class="content">
+            <p>Leto 2026 zaznamuje prelomnico v načinu, kako ljudje potujemo. Časi masovnega turizma, ki temelji na hitrem obiskovanju znamenitosti in ustvarjanju popolnih fotografij za družbena omrežja, se umikajo novemu, bolj premišljenemu pristopu. "Slow travel" ali počasno potovanje postaja norma za tiste, ki iščejo globoko povezavo z okoljem in nujno potrebno mentalno osvežitev.</p>
+            
+            <h3>Zakaj digitalni detoks postaja nujen?</h3>
+            <p>V svetu, kjer smo nenehno dosegljivi, je digitalni detoks na potovanju postal pravi luksuz. Ko zavestno odložimo naprave in se odklopimo od digitalnega šuma, naš živčni sistem končno vstopi v stanje parasimpatične dominance – stanja počitka in obnove. Raziskave kažejo, da nenehno preverjanje e-pošte in socialnih omrežij med dopustom preprečuje možganom, da bi se resetirali, kar pomeni, da se vrnemo domov le fizično prisotni, a mentalno še vedno utrujeni.</p>
+            
+            <p>V Sloveniji imamo izjemne pogoje za takšen odklop. Od oddaljenih planinskih koč v Julijskih Alpah do ekoloških turističnih kmetij, ki gostom nudijo popoln mir. Ti kotički omogočajo, da ponovno slišimo lastne misli in začutimo utrip narave, kar je v mestnem okolju skoraj nemogoče. Prav ta tišina je tisto, kar sodobnemu človeku najbolj manjka.</p>
+
+            <h3>Trajnost kot pot do osebne rasti</h3>
+            <p>Trajnostni turizem ne pomeni le skrbi za naravo, temveč tudi spoštovanje lokalne kulture in gospodarstva. Ko izbiramo lokalne ponudnike namesto velikih hotelskih verig, neposredno vplivamo na kakovost življenja domačinov. To ustvarja bolj avtentično izkušnjo, kjer nismo le turisti, temveč spoštovani gostje. Takšne interakcije bogatijo naš svetovni nazor in nam dajejo širšo perspektivo, ki jo hitra potovanja ne morejo ponuditi.</p>
+
+            <div class="highlight-box">
+                <p>Trajnostna izbira je naložba v vašo prihodnost. S tem ko ohranjamo destinacije čiste in pristne, zagotavljamo, da bodo na voljo tudi prihodnjim generacijam raziskovalcev.</p>
+            </div>
+
+            <h3>Vitalnost, moč in povezanost z naravo</h3>
+            <p>Bivanje v naravnem okolju ima dokazano pozitiven vpliv na moško vitalnost. Svež zrak, naravna svetloba in fizična aktivnost delujejo kot katalizator za obnovo moči. Za moške, ki se v vsakdanjem življenju soočajo z velikimi odgovornostmi in stresom, je takšen "divji" oddih ključen za ponovno vzpostavitev notranje suverenosti. Ko telo preide v naravni ritem, se povrnejo energija, fokus in samozavest, ki so nujni za uspešno premagovanje izzivov v profesionalnem in zasebnem življenju.</p>
+            
+            <p>Za konec velja poudariti: najboljše potovanje ni tisto, ki ima največ ogledov na Instagramu, temveč tisto, ki vas spremeni. V letu 2026 naj bo vaše vodilo kakovost nad količino. Izberite eno lokacijo, ostanite tam dlje časa, odložite telefon in resnično zaživite. To je edini način, da se boste z dopusta vrnili zares prerojeni.</p>
+        </div>
+    </section>
+
+    <h3 class="blog-feed-title">Arhiv objav</h3>
     
     <div class="post-grid">
         <div class="post-card">
-            <div class="post-card-image">
-                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80" alt="Obala">
-            </div>
+            <div class="post-card-image"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80" alt="Obala"></div>
             <div class="post-card-content">
-                <span class="post-card-date">15. februar 2026</span>
-                <h4>Skrite plaže slovenske obale, ki jih morate obiskati</h4>
-                <p>Odkrijte kotičke, kjer se čas ustavi in kjer boste našli pravi mir stran od turističnega vrveža...</p>
+                <h4>Skrite plaže Jadrana</h4>
+                <p>Odkrijte kotičke, kjer se čas ustavi in kjer boste našli pravi mir stran od vrveža...</p>
             </div>
         </div>
-
         <div class="post-card">
-            <div class="post-card-image">
-                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=400&q=80" alt="Gore">
-            </div>
+            <div class="post-card-image"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=400&q=80" alt="Gore"></div>
             <div class="post-card-content">
-                <span class="post-card-date">28. januar 2026</span>
-                <h4>Vodnik za varno pohodništvo v Julijskih Alpah</h4>
-                <p>Priprava je ključna za varno in prijetno izkušnjo v gorah. Preverite naš seznam nujne opreme...</p>
-            </div>
-        </div>
-
-        <div class="post-card">
-            <div class="post-card-image">
-                <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=400&q=80" alt="Mesto">
-            </div>
-            <div class="post-card-content">
-                <span class="post-card-date">10. januar 2026</span>
-                <h4>Najboljše restavracije za lokalno kulinariko v Ljubljani</h4>
-                <p>Kje v prestolnici poskusiti najboljšo kranjsko klobaso in prekmursko gibanico po mnenju domačinov...</p>
+                <h4>Varno v gore</h4>
+                <p>Priprava je ključna za varno in prijetno izkušnjo v Julijskih Alpah. Preverite opremo...</p>
             </div>
         </div>
     </div>
 </div>
 
 <footer>
+    <nav>
+        <a href="index.html">Domov</a> | 
+        <a href="o-nas.html">O nas</a> | 
+        <a href="pravno-obvestilo.html">Pravno obvestilo</a>
+    </nav>
     <p>&copy; 2026 Turistični Oglasi Slovenija. Vse pravice pridržane.</p>
-    <p><small>Informacije na tej strani so zgolj informativne narave.</small></p>
 </footer>
 
 </body>
