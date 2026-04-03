@@ -1,0 +1,30 @@
+# Local working folders - never commit these to public repo
+content/
+images/
+
+# Temporary / generated folders (will be recreated on build)
+blogs/
+data/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Local environment
+.env
+.venv/
+venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Do NOT commit the original readable content when obfuscated version exists
+# (obfuscate.py will handle src/)
