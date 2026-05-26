@@ -10,7 +10,6 @@
         .hero-bg {
             background-size: cover;
             background-position: center;
-            background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('images/{{ featured.image }}');
         }
         .card-hover {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -50,7 +49,8 @@
         {% set featured = visible_posts[0] %}
         
         <!-- FEATURED POST -->
-        <div class="hero-bg h-screen flex items-center text-white">
+        <div class="hero-bg h-screen flex items-center text-white"
+             style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('images/{{ featured.image }}');">
             <div class="max-w-4xl mx-auto px-6">
                 <div class="max-w-2xl">
                     <p class="uppercase tracking-widest text-emerald-200 text-sm font-medium mb-3">{{ featured.date.strftime("%d. %B %Y") }}</p>
@@ -82,43 +82,4 @@
                             <h3 class="font-semibold text-xl leading-tight mt-3 mb-4 group-hover:text-emerald-700 transition-colors">{{ post.title }}</h3>
                             <p class="text-stone-600 text-[15px] line-clamp-3 flex-1">{{ post.excerpt }}</p>
                             <div class="pt-6 mt-auto border-t text-emerald-700 text-sm font-medium flex items-center gap-2">
-                                Preberi članek →
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                {% endfor %}
-            </div>
-        </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-stone-900 text-stone-400 py-16">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-10">
-                <div>
-                    <div class="flex items-center gap-3 text-white mb-4">
-                        <span class="text-3xl">🌲</span>
-                        <span class="font-bold text-2xl">Turistični Oglasi</span>
-                    </div>
-                    <p class="text-sm leading-relaxed">
-                        Neodvisen portal za avtentična potovanja in aktiven življenjski slog od leta 2024.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Hitre povezave</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="index.html" class="hover:text-white transition-colors">Domov</a></li>
-                        <li><a href="o-nas.html" class="hover:text-white transition-colors">O nas</a></li>
-                        <li><a href="pravno-obvestilo.html" class="hover:text-white transition-colors">Pravno obvestilo</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Projekt</h4>
-                    <p class="text-xs">© 2026 Turistični Oglasi. Vse pravice pridržane.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+                                Preberi
