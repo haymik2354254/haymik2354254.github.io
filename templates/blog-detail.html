@@ -3,129 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} | Turistični Oglasi</title>
-    <meta name="description" content="{{ excerpt }}">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-
+    <title>{{ post.title }} | Turistični Oglasi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary-color: #2c3e50; --accent-color: #3498db; --text-color: #333; --bg-color: #f4f7f6; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; line-height: 1.8; color: var(--text-color); background-color: var(--bg-color); }
-        
-        .article-wrap { 
-            max-width: 900px; 
-            margin: 40px auto; 
-            background: #fff; 
-            padding: 50px; 
-            border-radius: 12px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-            border: 1px solid #eee; 
+        .prose p {
+            margin-bottom: 1.25em;
+            line-height: 1.75;
         }
-        
-        .back-link { 
-            color: var(--accent-color); 
-            text-decoration: none; 
-            font-weight: 700; 
-            display: inline-block; 
-            margin-bottom: 30px; 
-        }
-        .back-link:hover { text-decoration: underline; }
-        
-        .post-meta { 
-            font-size: 0.9rem; 
-            color: #999; 
-            margin-bottom: 15px; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-        }
-        
-        h1 { 
-            font-size: 2.4rem; 
-            line-height: 1.2; 
-            margin-bottom: 35px; 
-            color: var(--primary-color); 
-        }
-        
-        .featured-image { 
-            width: 100%; 
-            height: 460px; 
-            border-radius: 8px; 
-            margin-bottom: 45px; 
-            overflow: hidden; 
-            background: #eee; 
-        }
-        .featured-image img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-        }
-        
-        h3 { 
-            font-size: 1.6rem; 
-            margin: 40px 0 18px; 
-            color: var(--primary-color); 
-            border-left: 5px solid var(--accent-color); 
-            padding-left: 15px; 
-        }
-        
-        p { 
-            margin-bottom: 28px; 
-            font-size: 1.12rem; 
-            color: #444; 
-            text-align: justify; 
-        }
-        
-        .highlight-box { 
-            background: #f0f7ff; 
-            padding: 32px; 
-            border-radius: 8px; 
-            border-left: 5px solid var(--accent-color); 
-            margin: 35px 0; 
-            font-style: italic; 
-        }
-        
-        footer { 
-            padding: 60px 0 40px; 
-            text-align: center; 
-            font-size: 0.85rem; 
-            color: #777; 
-            border-top: 1px solid #ddd; 
-            margin-top: 80px; 
-        }
-        
-        @media (max-width: 600px) { 
-            .article-wrap { padding: 30px 20px; } 
-            h1 { font-size: 1.9rem; } 
-            .featured-image { height: 280px; } 
+        .prose h2, .prose h3 {
+            font-weight: 700;
+            margin-top: 2.5em;
+            margin-bottom: 1em;
         }
     </style>
 </head>
-<body>
-
-<div class="article-wrap">
-    <a href="../index.html" class="back-link">← Nazaj na domov</a>
-    
-    <article>
-        <div class="post-meta">{{ date }} | {{ meta or 'Turistični Oglasi' }}</div>
-        <h1>{{ title }}</h1>
-        
-        <!-- FIXED IMAGE PATH -->
-        <div class="featured-image">
-            <img src="../images/{{ image }}" alt="{{ title }}">
+<body class="bg-stone-50">
+    <!-- HEADER -->
+    <header class="border-b bg-white sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3">
+                <span class="text-3xl">🌲</span>
+                <div>
+                    <span class="font-bold text-2xl tracking-tight text-emerald-800">Turistični</span>
+                    <span class="font-bold text-2xl tracking-tight text-stone-700">Oglasi</span>
+                </div>
+            </a>
+            <a href="../index.html" 
+               class="text-sm font-medium flex items-center gap-2 text-emerald-700 hover:text-emerald-800 transition-colors">
+                ← Nazaj na domov
+            </a>
         </div>
-        
-        <div class="content">
-            {{ content | safe }}
+    </header>
+
+    <article class="max-w-4xl mx-auto px-6 py-12">
+        <div class="mb-8">
+            <p class="text-emerald-600 font-medium">{{ post.date.strftime("%d. %B %Y") }}</p>
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight mt-4">{{ post.title }}</h1>
+        </div>
+
+        <img src="../images/{{ post.image }}" 
+             class="w-full h-auto rounded-3xl shadow-md mb-12" 
+             alt="{{ post.title }}">
+
+        <div class="prose prose-lg max-w-none text-stone-700">
+            {{ post.content | safe }}
+        </div>
+
+        <div class="mt-16 pt-10 border-t border-stone-200 text-center">
+            <a href="../index.html" 
+               class="inline-flex items-center gap-3 text-emerald-700 hover:text-emerald-800 font-medium">
+                <span>←</span>
+                <span>Nazaj na vse članke</span>
+            </a>
         </div>
     </article>
-</div>
 
-<footer>
-    <p>&copy; 2026 Turistični Oglasi Slovenija. Vse pravice pridržane.</p>
-</footer>
-
+    <!-- FOOTER -->
+    <footer class="bg-stone-900 text-stone-400 py-16">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-10">
+                <div>
+                    <div class="flex items-center gap-3 text-white mb-4">
+                        <span class="text-3xl">🌲</span>
+                        <span class="font-bold text-2xl">Turistični Oglasi</span>
+                    </div>
+                    <p class="text-sm leading-relaxed">
+                        Neodvisen portal za avtentična potovanja in aktiven življenjski slog od leta 2024.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Hitre povezave</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html" class="hover:text-white transition-colors">Domov</a></li>
+                        <li><a href="../o-nas.html" class="hover:text-white transition-colors">O nas</a></li>
+                        <li><a href="../pravno-obvestilo.html" class="hover:text-white transition-colors">Pravno obvestilo</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Projekt</h4>
+                    <p class="text-xs">© 2026 Turistični Oglasi. Vse pravice pridržane.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
