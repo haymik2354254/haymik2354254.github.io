@@ -3,24 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turistični Oglasi | Avtentična potovanja po Sloveniji</title>
+    <title>Narava in trajnost | Turistični Oglasi</title>
+    <meta name="description" content="Narava in trajnost: Odgovorno potovanje, spoštovanje okolja in praktični nasveti za manjši vpliv na prostor.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
-        .hero-bg {
-            background-size: cover;
-            background-position: center;
-        }
         .card-hover {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .card-hover:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-        .prose p {
-            margin-bottom: 1.25em;
-            line-height: 1.75;
         }
     </style>
 </head>
@@ -36,7 +29,7 @@
                 </div>
             </a>
             <nav class="flex flex-wrap items-center gap-5 text-sm font-medium">
-                <a href="index.html" class="text-emerald-700 font-semibold">Domov</a>
+                <a href="index.html" class="hover:text-emerald-700 transition-colors">Domov</a>
                 <a href="o-nas.html" class="hover:text-emerald-700 transition-colors">O nas</a>
                 <a href="pravno-obvestilo.html" class="hover:text-emerald-700 transition-colors">Pravno obvestilo</a>
             </nav>
@@ -45,7 +38,7 @@
             <nav class="max-w-6xl mx-auto px-6 py-3 flex flex-wrap gap-2">
                     <a href="kategorija-slovenija.html" class="px-4 py-2 rounded-full border text-sm font-medium transition-colors bg-white text-stone-700 border-stone-200 hover:border-emerald-600 hover:text-emerald-700">Slovenija</a>
                     <a href="kategorija-aktivni-oddih.html" class="px-4 py-2 rounded-full border text-sm font-medium transition-colors bg-white text-stone-700 border-stone-200 hover:border-emerald-600 hover:text-emerald-700">Aktivni oddih</a>
-                    <a href="kategorija-narava-in-trajnost.html" class="px-4 py-2 rounded-full border text-sm font-medium transition-colors bg-white text-stone-700 border-stone-200 hover:border-emerald-600 hover:text-emerald-700">Narava in trajnost</a>
+                    <a href="kategorija-narava-in-trajnost.html" class="px-4 py-2 rounded-full border text-sm font-medium transition-colors bg-emerald-700 text-white border-emerald-700">Narava in trajnost</a>
                     <a href="kategorija-sosednje-regije.html" class="px-4 py-2 rounded-full border text-sm font-medium transition-colors bg-white text-stone-700 border-stone-200 hover:border-emerald-600 hover:text-emerald-700">Sosednje regije</a>
                     <a href="kategorija-potovalni-nasveti.html" class="px-4 py-2 rounded-full border text-sm font-medium transition-colors bg-white text-stone-700 border-stone-200 hover:border-emerald-600 hover:text-emerald-700">Potovalni nasveti</a>
             </nav>
@@ -53,67 +46,37 @@
     </header>
 
     <main>
-        {% set visible_posts = posts %}
-
-        <!-- CATEGORY SECTION -->
-        <section class="border-b border-stone-100 bg-stone-50">
-            <div class="max-w-6xl mx-auto px-6 py-12">
-                <div class="max-w-2xl mb-8">
-                    <p class="uppercase tracking-widest text-emerald-700 text-sm font-medium mb-3">Kategorije</p>
-                    <h2 class="text-3xl font-bold text-stone-900">Razišči vsebine po temi</h2>
-                    <p class="text-stone-600 leading-relaxed mt-4">Izberi področje, ki najbolj ustreza tvojemu načinu potovanja, od domačih izletov do aktivnih oddihov in praktičnih nasvetov.</p>
-                </div>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-                <a href="kategorija-slovenija.html" class="group bg-white rounded-3xl border border-stone-100 p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
-                    <h3 class="font-semibold text-xl text-stone-900 group-hover:text-emerald-700 transition-colors">Slovenija</h3>
-                    <p class="text-sm text-stone-600 leading-relaxed mt-3">Izleti, destinacije, naravne poti in manj znani kotički po Sloveniji.</p>
-                </a>
-                <a href="kategorija-aktivni-oddih.html" class="group bg-white rounded-3xl border border-stone-100 p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
-                    <h3 class="font-semibold text-xl text-stone-900 group-hover:text-emerald-700 transition-colors">Aktivni oddih</h3>
-                    <p class="text-sm text-stone-600 leading-relaxed mt-3">Pohodništvo, kolesarjenje, vodne aktivnosti in ideje za gibanje v naravi.</p>
-                </a>
-                <a href="kategorija-narava-in-trajnost.html" class="group bg-white rounded-3xl border border-stone-100 p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
-                    <h3 class="font-semibold text-xl text-stone-900 group-hover:text-emerald-700 transition-colors">Narava in trajnost</h3>
-                    <p class="text-sm text-stone-600 leading-relaxed mt-3">Odgovorno potovanje, spoštovanje okolja in praktični nasveti za manjši vpliv na prostor.</p>
-                </a>
-                <a href="kategorija-sosednje-regije.html" class="group bg-white rounded-3xl border border-stone-100 p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
-                    <h3 class="font-semibold text-xl text-stone-900 group-hover:text-emerald-700 transition-colors">Sosednje regije</h3>
-                    <p class="text-sm text-stone-600 leading-relaxed mt-3">Ideje za bližnje oddihe v sosednjih državah, od Alp do Jadrana.</p>
-                </a>
-                <a href="kategorija-potovalni-nasveti.html" class="group bg-white rounded-3xl border border-stone-100 p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
-                    <h3 class="font-semibold text-xl text-stone-900 group-hover:text-emerald-700 transition-colors">Potovalni nasveti</h3>
-                    <p class="text-sm text-stone-600 leading-relaxed mt-3">Praktični vodniki za načrtovanje poti, pripravo, sezono, varnost in izbiro izleta.</p>
-                </a>
-                </div>
+        <section class="bg-emerald-950 text-white">
+            <div class="max-w-6xl mx-auto px-6 py-20">
+                <p class="uppercase tracking-widest text-emerald-200 text-sm font-medium mb-4">Kategorija</p>
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight">Narava in trajnost</h1>
+                <p class="max-w-2xl text-stone-100 leading-relaxed mt-6">Odgovorno potovanje, spoštovanje okolja in praktični nasveti za manjši vpliv na prostor.</p>
             </div>
         </section>
 
-        {% if visible_posts and visible_posts|length > 0 %}
-        {% set featured = visible_posts[0] %}
-        
-        <!-- FEATURED POST -->
-        <div class="hero-bg h-screen flex items-center text-white"
-             style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('images/{{ featured.image }}');">
-            <div class="max-w-4xl mx-auto px-6">
-                <div class="max-w-2xl">
-                    <p class="uppercase tracking-widest text-emerald-200 text-sm font-medium mb-3">{{ featured.date.strftime("%d. %B %Y") }}</p>
-                    <a href="blogs/{{ featured.slug }}.html" class="block">
-                        <h1 class="text-5xl leading-tight font-bold mb-6">{{ featured.title }}</h1>
-                    </a>
-                    <p class="text-lg text-stone-100 mb-8">{{ featured.excerpt }}</p>
-                    <a href="blogs/{{ featured.slug }}.html" 
-                       class="inline-flex items-center gap-2 bg-white text-emerald-900 px-8 py-4 rounded-full font-semibold hover:bg-emerald-100 transition-colors">
-                        Preberi več →
-                    </a>
-                </div>
-            </div>
-        </div>
-        {% endif %}
+        <section class="max-w-6xl mx-auto px-6 py-16">
+            {% set category_name = "Narava in trajnost" %}
+            {% set category_slug = "narava-in-trajnost" %}
+            {% set ns = namespace(visible_posts=[]) %}
+            {% for post in posts %}
+                {% set post_category = post.category if post.category is defined else "" %}
+                {% set post_category_slug = post.category_slug if post.category_slug is defined else "" %}
+                {% set post_categories = post.categories if post.categories is defined else [] %}
+                {% if post_category == category_name or post_category == category_slug or post_category_slug == category_slug or category_name in post_categories or category_slug in post_categories %}
+                    {% set _ = ns.visible_posts.append(post) %}
+                {% endif %}
+            {% endfor %}
+            {% set visible_posts = ns.visible_posts %}
 
-        <!-- ARCHIVE SECTION -->
-        <div class="max-w-6xl mx-auto px-6 py-16">
-            <h2 class="text-3xl font-bold mb-10 text-center">Zadnje objave</h2>
-            
+            <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-10">
+                <div>
+                    <h2 class="text-3xl font-bold">Članki v kategoriji</h2>
+                    <p class="text-stone-600 mt-3">Prikazani so samo članki, ki imajo kategorijo <strong>Narava in trajnost</strong>.</p>
+                </div>
+                <a href="index.html" class="text-emerald-700 hover:text-emerald-800 font-medium">← Vse objave</a>
+            </div>
+
+            {% if visible_posts and visible_posts|length > 0 %}
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {% for post in visible_posts %}
                 <a href="blogs/{{ post.slug }}.html" class="group block">
@@ -121,13 +84,7 @@
                         <div class="h-56 bg-cover bg-center" 
                              style="background-image: url('images/{{ post.image }}')"></div>
                         <div class="p-6 flex-1 flex flex-col">
-                            <div class="flex flex-wrap items-center gap-3 text-sm">
-                                <p class="text-emerald-600 font-medium">{{ post.date.strftime("%d. %m. %Y") }}</p>
-                                {% if post.category is defined and post.category %}
-                                <span class="text-stone-400">•</span>
-                                <span class="text-stone-500">{{ post.category }}</span>
-                                {% endif %}
-                            </div>
+                            <p class="text-emerald-600 text-sm font-medium">{{ post.date.strftime("%d. %m. %Y") }}</p>
                             <h3 class="font-semibold text-xl leading-tight mt-3 mb-4 group-hover:text-emerald-700 transition-colors">{{ post.title }}</h3>
                             <p class="text-stone-600 text-[15px] line-clamp-3 flex-1">{{ post.excerpt }}</p>
                             <div class="pt-6 mt-auto border-t text-emerald-700 text-sm font-medium flex items-center gap-2">
@@ -138,7 +95,13 @@
                 </a>
                 {% endfor %}
             </div>
-        </div>
+            {% else %}
+            <div class="bg-white rounded-3xl border border-stone-100 p-10 text-center shadow-sm">
+                <h3 class="text-xl font-semibold text-stone-900">V tej kategoriji trenutno še ni člankov.</h3>
+                <p class="text-stone-600 mt-3">Ko bo objava označena s kategorijo <strong>Narava in trajnost</strong>, se bo prikazala tukaj.</p>
+            </div>
+            {% endif %}
+        </section>
     </main>
 
     <!-- FOOTER -->

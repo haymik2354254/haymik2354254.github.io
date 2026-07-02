@@ -18,10 +18,10 @@
         }
     </style>
 </head>
-<body class="bg-stone-50">
+<body class="bg-stone-50 text-stone-800">
     <!-- HEADER -->
     <header class="border-b bg-white sticky top-0 z-50">
-        <div class="max-w-4xl mx-auto px-6 py-5 flex justify-between items-center">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex flex-col gap-5 md:flex-row md:justify-between md:items-center">
             <a href="../index.html" class="flex items-center gap-3">
                 <span class="text-3xl">🌲</span>
                 <div>
@@ -29,16 +29,32 @@
                     <span class="font-bold text-2xl tracking-tight text-stone-700">Oglasi</span>
                 </div>
             </a>
-            <a href="../index.html" 
-               class="text-sm font-medium flex items-center gap-2 text-emerald-700 hover:text-emerald-800 transition-colors">
-                ← Nazaj na domov
-            </a>
+            <nav class="flex flex-wrap items-center gap-5 text-sm font-medium">
+                <a href="../index.html" class="hover:text-emerald-700 transition-colors">Domov</a>
+                <a href="../o-nas.html" class="hover:text-emerald-700 transition-colors">O nas</a>
+                <a href="../pravno-obvestilo.html" class="hover:text-emerald-700 transition-colors">Pravno obvestilo</a>
+            </nav>
+        </div>
+        <div class="border-t border-stone-100 bg-stone-50">
+            <nav class="max-w-6xl mx-auto px-6 py-3 flex flex-wrap gap-2">
+                    <a href="../kategorija-slovenija.html" class="px-4 py-2 rounded-full border text-sm font-medium transition-colors bg-white text-stone-700 border-stone-200 hover:border-emerald-600 hover:text-emerald-700">Slovenija</a>
+                    <a href="../kategorija-aktivni-oddih.html" class="px-4 py-2 rounded-full border text-sm font-medium transition-colors bg-white text-stone-700 border-stone-200 hover:border-emerald-600 hover:text-emerald-700">Aktivni oddih</a>
+                    <a href="../kategorija-narava-in-trajnost.html" class="px-4 py-2 rounded-full border text-sm font-medium transition-colors bg-white text-stone-700 border-stone-200 hover:border-emerald-600 hover:text-emerald-700">Narava in trajnost</a>
+                    <a href="../kategorija-sosednje-regije.html" class="px-4 py-2 rounded-full border text-sm font-medium transition-colors bg-white text-stone-700 border-stone-200 hover:border-emerald-600 hover:text-emerald-700">Sosednje regije</a>
+                    <a href="../kategorija-potovalni-nasveti.html" class="px-4 py-2 rounded-full border text-sm font-medium transition-colors bg-white text-stone-700 border-stone-200 hover:border-emerald-600 hover:text-emerald-700">Potovalni nasveti</a>
+            </nav>
         </div>
     </header>
 
     <article class="max-w-4xl mx-auto px-6 py-12">
         <div class="mb-8">
-            <p class="text-emerald-600 font-medium">{{ post.date.strftime("%d. %B %Y") }}</p>
+            <div class="flex flex-wrap items-center gap-3 text-sm font-medium">
+                <p class="text-emerald-600">{{ post.date.strftime("%d. %B %Y") }}</p>
+                {% if post.category is defined and post.category %}
+                <span class="text-stone-400">•</span>
+                <span class="text-stone-500">{{ post.category }}</span>
+                {% endif %}
+            </div>
             <h1 class="text-4xl md:text-5xl font-bold leading-tight mt-4">{{ post.title }}</h1>
         </div>
 
@@ -61,8 +77,8 @@
 
     <!-- FOOTER -->
     <footer class="bg-stone-900 text-stone-400 py-16">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-10">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-10">
                 <div>
                     <div class="flex items-center gap-3 text-white mb-4">
                         <span class="text-3xl">🌲</span>
@@ -78,6 +94,16 @@
                         <li><a href="../index.html" class="hover:text-white transition-colors">Domov</a></li>
                         <li><a href="../o-nas.html" class="hover:text-white transition-colors">O nas</a></li>
                         <li><a href="../pravno-obvestilo.html" class="hover:text-white transition-colors">Pravno obvestilo</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Kategorije</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../kategorija-slovenija.html" class="hover:text-white transition-colors">Slovenija</a></li>
+                    <li><a href="../kategorija-aktivni-oddih.html" class="hover:text-white transition-colors">Aktivni oddih</a></li>
+                    <li><a href="../kategorija-narava-in-trajnost.html" class="hover:text-white transition-colors">Narava in trajnost</a></li>
+                    <li><a href="../kategorija-sosednje-regije.html" class="hover:text-white transition-colors">Sosednje regije</a></li>
+                    <li><a href="../kategorija-potovalni-nasveti.html" class="hover:text-white transition-colors">Potovalni nasveti</a></li>
                     </ul>
                 </div>
                 <div>

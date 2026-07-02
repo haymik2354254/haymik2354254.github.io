@@ -1,9 +1,9 @@
-# generate_blogs.py - FINAL VERSION
+# generate_blogs.py - POPRAVLJENA VERZIJA (Brez IndentationError)
 import os
 import json
 import shutil
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
 
 env = Environment(loader=FileSystemLoader('templates'))
@@ -12,7 +12,7 @@ detail_template = env.get_template('blog-detail.html')
 def main(mode="obfuscated"):
     print(f"🚀 Generating blog posts... (mode: {mode})")
 
-    # Ensure correct folders
+    # Zagotovimo obstoj potrebnih map
     os.makedirs("blogs", exist_ok=True)
     os.makedirs("data", exist_ok=True)
     os.makedirs("images", exist_ok=True)
@@ -41,22 +41,19 @@ def main(mode="obfuscated"):
 
         print(f"Processing: {title} ({date_str}) - slug: {real_slug}")
 
-        if mode == "local":
-            content_path = os.path.join("content", f"{real_slug}.html")
-            image_src = os.path.join("images", f"{real_slug}.jpg")
+        # Nastavimo poti do virov glede na način delovanja (zamegljeno ali surovo)
+        if mode == "obfuscated" and "internal_id" in blog:
+            content_src = os.path.join("src", blog["content_file"])
+            image_src = os.path.join("src/images", blog["image"])
         else:
-            content_file = blog.get("content_file")
-            if not content_file:
-                print(f"⚠️ No content_file for {title}")
-                continue
-            content_path = os.path.join("src", content_file)
-            image_src = os.path.join("src/images", blog.get("image", ""))
+            content_src = os.path.join("content", f"{real_slug}.html")
+            image_src = os.path.join("images", f"{real_slug}.jpg")
 
-        if not os.path.exists(content_path):
-            print(f"⚠️ Content file not found: {content_path}")
+        if not os.path.exists(content_src):
+            print(f"⚠️ Content file not found: {content_src}")
             continue
 
-        with open(content_path, "r", encoding="utf-8") as f:
+        with open(content_src, "r", encoding="utf-8") as f:
             content = f.read()
 
         try:
@@ -67,6 +64,7 @@ def main(mode="obfuscated"):
         blog_filename = f"{real_slug}.html"
         output_path = os.path.join("blogs", blog_filename)
 
+        # Izris Jinja2 predloge (Kategorija se uspešno črpa iz JSON-a)
         rendered = detail_template.render(
             post={
                 "title": title,
@@ -75,7 +73,7 @@ def main(mode="obfuscated"):
                 "excerpt": blog.get("excerpt", ""),
                 "content": content,
                 "meta": blog.get("meta", ""),
-                "category": blog.get("category", "Article"),
+                "category": blog.get("category", "Zdravstvena politika"),
                 "slug": real_slug
             }
         )
@@ -93,7 +91,8 @@ def main(mode="obfuscated"):
             "excerpt": blog.get("excerpt", ""),
             "image": real_slug + ".jpg",
             "url": f"blogs/{real_slug}.html",
-            "slug": real_slug
+            "slug": real_slug,
+            "category": blog.get("category", "Potrošniška tehnologija")
         })
 
         print(f"✅ Generated: blogs/{blog_filename}")
@@ -102,8 +101,9 @@ def main(mode="obfuscated"):
     with open("data/posts.json", "w", encoding="utf-8") as f:
         json.dump(posts, f, ensure_ascii=False, indent=2)
 
-    print(f"\n🎉 Finished: {published} posts generated")
+    print(f"🎉 Process finished. Successfully generated {published} visible posts inside data/posts.json")
 
 if __name__ == "__main__":
-    mode = "local" if len(sys.argv) > 1 and sys.argv[1] == "--local" else "obfuscated"
-    main(mode)
+    # Privzeto deluje v zamegljenem (obfuscated) načinu
+    mode_arg = sys.argv[1] if len(sys.argv) > 1 else "obfuscated"
+    main(mode_arg)

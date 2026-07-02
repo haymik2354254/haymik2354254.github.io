@@ -1,34 +1,65 @@
 [
   {
-    "title": "Kako načrtovati oddih brez stresa in brez občutka, da ves čas nekaj zamujate",
+    "title": "Kako načrtovati oddih brez stresa",
     "date": "2026-02-04",
-    "excerpt": "Kako postaviti realen ritem potovanja, zmanjšati hitenje in načrtovati oddih, ki res prinese počitek.",
+    "excerpt": "Veliko ljudi naredi isto napako že pri prvem koraku. Namesto da bi najprej razmislili, kaj od oddiha sploh želijo, začnejo z iskanjem najcenejših letov, najbolj gledanih...",
     "image": "kako-nacrtovati-oddih-brez-stresa.jpg",
     "url": "blogs/kako-nacrtovati-oddih-brez-stresa.html",
-    "meta": ""
+    "slug": "kako-nacrtovati-oddih-brez-stresa",
+    "category": "Potovalni nasveti"
   },
   {
-    "title": "Trajnostna potovanja in digitalni odklop: zakaj manj planiranja pogosto prinese več",
+    "title": "Trajnostna potovanja in digitalni odklop",
     "date": "2026-02-16",
-    "excerpt": "Zakaj počasnejše potovanje in manj digitalnega šuma pogosto pomenita boljši stik z okoljem in več miru.",
+    "excerpt": "Trajnostna potovanja niso modna fraza za lepo embalažo enakega vedenja. Njihov smisel je precej bolj preprost. Gre za to, da se po destinaciji premikate počasneje, z manj...",
     "image": "trajnostna-potovanja-in-digitalni-odklop.jpg",
     "url": "blogs/trajnostna-potovanja-in-digitalni-odklop.html",
-    "meta": ""
+    "slug": "trajnostna-potovanja-in-digitalni-odklop",
+    "category": "Narava in trajnost"
   },
   {
-    "title": "Vikend pobeg v Sloveniji z malo prtljage: kako spakirati manj in doživeti več",
+    "title": "Vikend pobeg v Sloveniji z malo prtljage",
     "date": "2026-02-27",
-    "excerpt": "Praktičen pogled na krajši oddih v Sloveniji z manj stvari, manj stresa in bolj sproščenim tempom.",
+    "excerpt": "Kratek vikend pobeg je pogosto najbolj hvaležna oblika oddiha, a ljudje ga radi zapletejo s preveč prtljage, preveč rezervnimi scenariji in preveč nepotrebne opreme. Za dva...",
     "image": "vikend-pobeg-v-sloveniji-z-malo-prtljage.jpg",
     "url": "blogs/vikend-pobeg-v-sloveniji-z-malo-prtljage.html",
-    "meta": ""
+    "slug": "vikend-pobeg-v-sloveniji-z-malo-prtljage",
+    "category": "Slovenija"
   },
   {
-    "title": "Kako izbrati namestitev za pravi počitek namesto za lepe fotografije",
+    "title": "Kako izbrati namestitev za pravi počitek",
     "date": "2026-04-09",
-    "excerpt": "Na kaj je res smiselno paziti pri izbiri nastanitve, če želite dober spanec, manj logistike in več miru.",
+    "excerpt": "Namestitev lahko oddih podpre ali pa ga skoraj uniči. Težava je v tem, da veliko ljudi izbira predvsem po videzu. Lep balkon, dobra svetloba, urejena kopalnica in privlačne...",
     "image": "kako-izbrati-namestitev-za-pravi-pocitek.jpg",
     "url": "blogs/kako-izbrati-namestitev-za-pravi-pocitek.html",
-    "meta": ""
+    "slug": "kako-izbrati-namestitev-za-pravi-pocitek",
+    "category": "Potovalni nasveti"
+  },
+  {
+    "title": "Varno v gore poleti: priprava brez napak",
+    "date": "2026-05-22",
+    "excerpt": "Poletni obisk gora mnogi še vedno podcenjujejo. Lepo vreme v dolini hitro ustvari lažen občutek varnosti, potem pa ljudje na višini ugotovijo, da so brez dovolj vode, brez...",
+    "image": "varno-v-gore-poleti-priprava-brez-napak.jpg",
+    "url": "blogs/varno-v-gore-poleti-priprava-brez-napak.html",
+    "slug": "varno-v-gore-poleti-priprava-brez-napak",
+    "category": "Aktivni oddih"
+  },
+  {
+    "title": "Skriti kotički Slovenije za miren vikend v naravi",
+    "date": "2026-06-03",
+    "excerpt": "Vikend v naravi ne zahteva dolge vožnje, drage nastanitve ali seznama znamenitosti, ki jih je treba obkljukati do nedelje zvečer. V Sloveniji je veliko prostora za kratek...",
+    "image": "skriti-koticki-slovenije-za-miren-vikend.jpg",
+    "url": "blogs/skriti-koticki-slovenije-za-miren-vikend.html",
+    "slug": "skriti-koticki-slovenije-za-miren-vikend",
+    "category": "Slovenija"
+  },
+  {
+    "title": "Kako načrtovati aktiven vikend brez nepotrebnega stresa",
+    "date": "2026-06-11",
+    "excerpt": "Aktiven vikend se pogosto zaplete zaradi napačnega začetka. Ljudje najprej izberejo cilj, nato dodajo še en cilj, potem še razgledno točko, dobro gostilno, kopanje, ogled...",
+    "image": "kako-nacrtovati-aktiven-vikend-brez-stresa.jpg",
+    "url": "blogs/kako-nacrtovati-aktiven-vikend-brez-stresa.html",
+    "slug": "kako-nacrtovati-aktiven-vikend-brez-stresa",
+    "category": "Potovalni nasveti"
   }
 ]

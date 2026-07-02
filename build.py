@@ -1,14 +1,13 @@
-# build.py - FINAL WORKING VERSION
+# build.py - FINAL WORKING VERSION WITH CATEGORIES
 import os
 import json
 from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
 
 env = Environment(loader=FileSystemLoader('templates'))
-index_template = env.get_template('index-template.html')
 
 def main():
-    print("🏗️  Building index.html...")
+    print("🏗️  Building HTML pages...")
 
     with open("data/posts.json", "r", encoding="utf-8") as f:
         posts = json.load(f)
@@ -30,15 +29,34 @@ def main():
     visible_posts = [p for p in posts if p.get("date") and p["date"] <= today]
     visible_posts.sort(key=lambda x: x["date"], reverse=True)
 
-    rendered = index_template.render(
-        posts=visible_posts,
-        today=today_str
-    )
-
+    # 1. Zgradi glavno vstopno stran (index.html)
+    index_template = env.get_template('index-template.html')
+    rendered_index = index_template.render(posts=visible_posts, today=today_str)
     with open("index.html", "w", encoding="utf-8") as f:
-        f.write(rendered)
+        f.write(rendered_index)
+    print("✅ index.html built")
 
-    print(f"✅ index.html built with {len(visible_posts)} visible posts.")
+    # 2. Zgradi vse kategorijske strani
+    categories_pages = [
+        "kategorija-aktivni-oddih",
+        "kategorija-narava-in-trajnost",
+        "kategorija-potovalni-nasveti",
+        "kategorija-slovenija",
+        "kategorija-sosednje-regije",
+
+    ]
+
+    for cat_page in categories_pages:
+        try:
+            cat_template = env.get_template(f'{cat_page}.html')
+            rendered_cat = cat_template.render(posts=visible_posts, today=today_str)
+            with open(f"{cat_page}.html", "w", encoding="utf-8") as f:
+                f.write(rendered_cat)
+            print(f"✅ {cat_page}.html built")
+        except Exception as e:
+            print(f"⚠️ Could not build {cat_page}.html: Please ensure {cat_page}.html is inside templates/ folder.")
+
+    print(f"🏗️  Build complete with {len(visible_posts)} visible posts.")
 
 if __name__ == "__main__":
     main()
